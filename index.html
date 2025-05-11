@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PUVVULA LIKITHA | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.3s, color 0.3s;
+    }
+    :root {
+      --bg-color: #f0f4ff;
+      --text-color: #333;
+      --primary-color: #2563eb;
+    }
+    .dark-mode {
+      --bg-color: #111827;
+      --text-color: #f3f4f6;
+      --primary-color: #3b82f6;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav .logo {
+      font-size: 22px;
+      font-weight: 700;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: var(--primary-color);
+    }
+    .myblog {
+      background: var(--primary-color);
+      padding: 8px 16px;
+      border-radius: 8px;
+      color: white !important;
+    }
+    .hero {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 80px 50px;
+      background: var(--bg-color);
+      flex-wrap: wrap;
+    }
+    .hero-text {
+      max-width: 500px;
+    }
+    .hero-text h1 {
+      font-size: 40px;
+    }
+    .hero-text h2 {
+      color: var(--primary-color);
+      font-size: 24px;
+    }
+    .hero-text p {
+      margin: 10px 0 20px;
+      font-size: 18px;
+    }
+    .resume-btn {
+      background: var(--primary-color);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+    .socials a {
+      margin-right: 15px;
+      color: var(--text-color);
+      font-size: 22px;
+      transition: color 0.3s;
+    }
+    .socials a:hover {
+      color: var(--primary-color);
+    }
+    .hero-img img {
+      width: 250px;
+      height: 250px;
+      border-radius: 200%;
+      object-fit: cover;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      margin-top: 20px;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+      position: relative;
+    }
+    section h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--primary-color);
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    /* About section styled like the screenshot */
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      margin-top: 30px;
+    }
+    .about-section h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--text-color);
+    }
+    .about-section ul {
+      list-style: none;
+      padding: 0;
+    }
+    .about-section ul li {
+      margin: 10px 0;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+    }
+    .about-section ul li i {
+      margin-right: 10px;
+      color: var(--primary-color);
+    }
+
+    .skills, .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+    }
+    .card {
+      background: white;
+      padding: 30px 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+    }
+    .card i {
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+    .contact p {
+      margin: 10px 0;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+    .contact a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .contact a:hover {
+      color: #6a11cb;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #333;
+      color: white;
+      font-size: 0.9rem;
+    }
+    .dark-toggle {
+      cursor: pointer;
+      font-size: 20px;
+    }
+    @media (max-width: 768px) {
+      nav { flex-direction: column; }
+      nav ul { flex-direction: column; }
+      nav ul li { margin: 10px 0; }
+      .hero { flex-direction: column; text-align: center; }
+      .hero-img { margin-top: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">PUVVULA LIKITHA@Dev</div>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a class="myblog" href="#">My Blog</a></li>
+    <li><span class="dark-toggle" onclick="toggleDarkMode()"><i class="fas fa-moon"></i></span></li>
+  </ul>
+</nav>
+
+<section id="home" class="hero">
+  <div class="hero-text">
+    <h1>Hello, I’m <span class="typed-text"></span></h1>
+    <h2>Aspiring Software Engineer</h2>
+    <p>Passionate Web Dev & Cloud Enthusiast from India🌏</p>
+    <a class="resume-btn" href="Intern.pdf">Download Resume</a>
+    <div class="socials">
+      <a href="https://github.com/Likithapuvvula"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/likitha-puvvula-14994a313/"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
+  <div class="hero-img">
+    <img src="portifilo.jpg" alt="Your Photo">
+</div>
+</section>
+
+<section id="about" class="about">
+  <h2>About Me</h2>
+  <div class="about-grid">
+    <div class="about-section">
+      <h3>I am a ...</h3>
+      <ul>
+        <li><i class="fas fa-arrow-circle-right"></i>B.Tech  IT(Honors) Student</li>
+        <li><i class="fas fa-arrow-circle-right"></i>Tech Enthusiast</li>
+        <li><i class="fas fa-arrow-circle-right"></i>A quick learner</li>
+        <li><i class="fas fa-arrow-circle-right"></i>A team player</li>
+      </ul>
+    </div>
+    <div class="about-section">
+      <h3>I am familiar with ...</h3>
+      <ul>
+        <li><i class="fas fa-check-circle"></i>Web Development</li>
+        <li><i class="fas fa-check-circle"></i>Competitive Programming</li>
+        <li><i class="fas fa-check-circle"></i>Cloud Computing</li>
+      </ul>
+    </div>
+        <div class="about-section">
+      <h3>I love ...</h3>
+      <ul>
+        <li><i class="fas fa-heart"></i>Coding</li>
+        <li><i class="fas fa-heart"></i>Web developing </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="Skills" class="Skills">
+  <h2>Skills</h2>
+  <div class="Skills-grid">
+    <div class="Skills-section">
+      <h3>Programming Languages</h3>
+      <ul>
+        <li><i class="fas fa-arrow-circle-right"></i>C/C++</li>
+        <li><i class="fas fa-arrow-circle-right"></i>PYTHON</li>
+        <li><i class="fas fa-arrow-circle-right"></i>JAVA</li>
+      </ul>
+    </div>
+    <div class="Skills-section">
+      <h3>Frontend Technologies</h3>
+      <ul>
+        <li><i class="fas fa-check-circle"></i>HTML </li>
+        <li><i class="fas fa-check-circle"></i>CSS , JAVASCRIPT</li>
+        <li><i class="fas fa-check-circle"></i>REACT.JS,NODE.JS</li>
+      </ul>
+    </div>
+        <div class="Skills">
+      <h3>Databases</h3>
+      <ul>
+        <li><i class="fas fa-heart"></i>DBMS</li>
+        <li><i class="fas fa-heart"></i>MY SQL</li>
+        <li><i class="fas fa-heart"></i>MONGODB</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="projects">
+  <h2>Projects</h2>
+  <div class="card">
+    <i class="fas fa-laptop-code"></i>
+    <h3>Portfolio Website</h3>
+    <p>My personal portfolio to showcase my work and skills using html .</p>
+  </div>
+  <div class="card">
+    <i class="fas fa-store"></i>
+    <h3>Image-based Avatar Generator</h3>
+    <p>React, Node.js, MongoDB, Stripe API project for generating avatars.</p>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Contact Me</h2>
+  <p><i class="fas fa-envelope"></i> Email: <a href="mailto:likithapuvvula@gmail.com">likithapuvvula@gmail.com</a></p>
+  <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://linkedin.com/in/likitha-puvvula-14994a313" target="_blank">linkedin.com/in/likitha-puvvula-14994a313</a></p>
+  <p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/Likithapuvvula" target="_blank">github.com/Likithapuvvula</a></p>
+</section>
+
+<footer>
+  &copy; 2025 PUVVULA LIKITHA | Designed with❤️
+</footer>
+
+<script>
+  const typedText = document.querySelector('.typed-text');
+  const textArray = ['PUVVULA LIKITHA', 'Web Developer', 'AI Developer'];
+  let arrayIndex = 0, charIndex = 0;
+  
+  function type() {
+    if (charIndex < textArray[arrayIndex].length) {
+      typedText.textContent += textArray[arrayIndex][charIndex];
+      charIndex++;
+      setTimeout(type, 150);
+    } else {
+      setTimeout(erase, 2000);
+    }
+  }
+  
+  function erase() {
+    if (charIndex > 0) {
+      typedText.textContent = textArray[arrayIndex].substring(0, charIndex - 1);
+      charIndex--;
+      setTimeout(erase, 100);
+    } else {
+      arrayIndex = (arrayIndex + 1) % textArray.length;
+      setTimeout(type, 200);
+    }
+  }
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    if (textArray.length) setTimeout(type, 200);
+  });
+
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+  }
+</script>
+
+</body>
+</html>
